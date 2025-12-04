@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Mindful-AI</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="public/assets/styles/style.css">
+</head>
+<body>
+    <header>
+        <h2><a class="logo" href="index.html">Mindful-AI</a></h2>
+        <nav>
+            <li><a href="index.html" class="xd" data-i18n="nav.home">Home</a></li>
+            <li><a href="nosotros.html" class="xd" data-i18n="nav.nosotros">Nosotros</a></li>
+            <li><a href="blog.html" class="xd" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="faqs.html" class="xd" data-i18n="nav.faqs">FAQs</a></li>
+            <li><a href="reviews.html" class="xd" data-i18n="nav.reviews">Reseñas</a></li>
+            <li><a href="login.html" class="xd" data-i18n="nav.login">Iniciar sesión</a></li>
+            <li><a href="register.html" class="xd-btn" data-i18n="nav.register">Registrarse</a></li>
+                        <li>
+                            <button id="notif-bell" class="notif-bell" aria-label="Notificaciones"><span class="bell-icon">🔔</span><span class="notif-badge"></span></button>
+                        </li>
+                        <li style="margin-left:12px;">
+                            <select id="lang-select" style="padding:6px 8px; border-radius:4px;">
+                                <option value="es">ES</option>
+                                <option value="en">EN</option>
+                            </select>
+                        </li>
+        </nav>
+    </header>
+
+    <!-- Hero / login -->
+    <section id="hero" class="login-hero">
+        <div class="register-container">
+            <div class="register-left">
+                <h1 class="register-title" data-i18n="login.welcome">Bienvenido de vuelta</h1>
+                <p class="register-sub" data-i18n="login.sub">Introduce tus credenciales para acceder a tu cuenta y continuar donde lo dejaste.</p>
+                <p class="register-author"><small><span data-i18n="login.noaccount">¿No tienes cuenta? <a href="register.html" style="color:#a8e063; text-decoration:underline;">Regístrate aquí</a></span></small></p>
+            </div>
+
+            <aside class="register-card">
+                <h3 data-i18n="login.title">Iniciar sesión</h3>
+                <form id="loginForm" class="register-form">
+                    <div class="form-group"><label for="login-email" data-i18n="login.email">Email</label><input id="login-email" name="email" type="email" required class="form-input"></div>
+                    <div class="form-group"><label for="login-password" data-i18n="login.password">Contraseña</label><input id="login-password" name="password" type="password" required class="form-input"></div>
+                    <div class="form-group" style="display:flex; align-items:center; gap:8px;"><input id="remember" name="remember" type="checkbox"><label for="remember" style="margin:0;" data-i18n="login.remember">Recuérdame</label></div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary login-btn" data-i18n="login.btn">Iniciar sesión</button>
+                    </div>
+                </form>
+
+                <div id="login-message" class="form-message" aria-live="polite"></div>
+            </aside>
+        </div>
+    </section>
+
+    <footer>
+        <ul>
+            <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-snapchat-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-pinterest-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-github-square"></i></a></li>
+        </ul>
+        <p>Copyright(C) 2020 <a href="index.html" target="_blank">Mindful-AI</a></p>
+        <p>All rights reserved.</p>
+    </footer>
+
+        <script>
+            // Login via backend API (http://localhost:4000)
+            document.addEventListener('DOMContentLoaded', function(){
+                var form = document.getElementById('loginForm');
+                var msg = document.getElementById('login-message');
+                form.addEventListener('submit', async function(e){
+                    e.preventDefault();
+                    var email = document.getElementById('login-email').value.trim().toLowerCase();
+                    var password = document.getElementById('login-password').value;
+                    if(!email || !password){ msg.style.display='block'; msg.style.color='crimson'; msg.textContent='Completa email y contraseña.'; return; }
+                    try{
+                        const resp = await fetch('http://localhost:4000/api/login', {
+                            method: 'POST', headers: { 'Content-Type':'application/json' },
+                            body: JSON.stringify({ email, password })
+                        });
+                        const data = await resp.json();
+                        if(!resp.ok){ msg.style.display='block'; msg.style.color='crimson'; msg.textContent = data.error || 'Error de login'; return; }
+                        // store token and user
+                        localStorage.setItem('authToken', data.token);
+                        localStorage.setItem('loggedInUser', JSON.stringify(data.user));
+                        msg.style.display='block'; msg.style.color='green'; msg.textContent='Inicio de sesión correcto. Redirigiendo...';
+                        setTimeout(()=>{ window.location.href = 'dashboard.html'; }, 700);
+                    }catch(err){
+                        console.error(err);
+                        msg.style.display='block'; msg.style.color='crimson'; msg.textContent='No se pudo conectar al servidor. Asegúrate de arrancarlo en http://localhost:4000';
+                    }
+                });
+            });
+        </script>
+        <script src="public/assets/scripts/lang.js"></script>
+</body>
+</html>

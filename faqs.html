@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Mindful-AI</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="public/assets/styles/style.css">
+</head>
+<body>
+    <header>
+        <h2><a class="logo" href="index.html">Mindful-AI</a></h2>
+        <nav>
+            <li><a href="index.html" class="xd" data-i18n="nav.home">Home</a></li>
+            <li><a href="nosotros.html" class="xd" data-i18n="nav.nosotros">Nosotros</a></li>
+            <li><a href="blog.html" class="xd" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="faqs.html" class="xd" data-i18n="nav.faqs">FAQs</a></li>
+            <li><a href="reviews.html" class="xd" data-i18n="nav.reviews">Reseñas</a></li>
+            <li><a href="login.html" class="xd" data-i18n="nav.login">Iniciar sesión</a></li>
+            <li><a href="register.html" class="xd-btn" data-i18n="nav.register">Registrarse</a></li>
+            <li>
+                <button id="notif-bell" class="notif-bell" aria-label="Notificaciones"><span class="bell-icon">🔔</span><span class="notif-badge"></span></button>
+            </li>
+            <li style="margin-left:12px;">
+                <select id="lang-select" style="padding:6px 8px; border-radius:4px;">
+                    <option value="es">ES</option>
+                    <option value="en">EN</option>
+                </select>
+            </li>
+        </nav>
+    </header>
+
+    <!-- FAQs content -->
+    <section class="faqs-page">
+        <div class="register-container">
+            <div style="flex:1;">
+                <h1 class="register-title" style="color:#333;" data-i18n="faqs.title">Preguntas frecuentes</h1>
+                <p class="register-sub" style="color:#555; max-width:700px;" data-i18n="faqs.lead">Aquí respondemos las preguntas más comunes sobre Mindful-AI. Si no encuentras lo que buscas, contáctanos.</p>
+
+                <div class="faqs-list">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" data-i18n="faqs.q1.question">1. ¿Qué es Mindful IA?</button>
+                        <div class="faq-answer" hidden data-i18n="faqs.q1.answer">Mindful IA es un sistema web y móvil que utiliza inteligencia artificial para detectar señales tempranas de estrés, ansiedad y depresión mediante el análisis de los hábitos digitales y los patrones de comportamiento de los usuarios.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" data-i18n="faqs.q2.question">2. ¿En qué ayuda Mindful IA a los usuarios?</button>
+                        <div class="faq-answer" hidden data-i18n="faqs.q2.answer">Mindful IA ayuda a los usuarios enviándoles alertas preventivas, ofreciéndoles recomendaciones personalizadas y brindándoles opciones rápidas de autocuidado para favorecer su bienestar emocional.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" data-i18n="faqs.q3.question">3. ¿Por qué es importante Mindful IA?</button>
+                        <div class="faq-answer" hidden data-i18n="faqs.q3.answer">Mindful IA es importante porque promueve la detección temprana de problemas de salud mental, lo que permite a los usuarios actuar con mayor rapidez y mejorar su salud emocional en general.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" data-i18n="faqs.q4.question">4. ¿Cómo justifican las entrevistas la necesidad de una IA que gestione descansos y hábitos digitales?</button>
+                        <div class="faq-answer" hidden data-i18n="faqs.q4.answer">Porque la mayoría usa la computadora entre 4 y 10 horas, muchos no toman descansos y varios presentan fatiga o dificultad para desconectarse. Además, todos mostraron interés en una IA que organice sus tiempos y se adapte a su rutina.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" data-i18n="faqs.q5.question">5. ¿Qué diferencia a Mindful IA de competidores como RescueTime o ClickUp IA?</button>
+                        <div class="faq-answer" hidden data-i18n="faqs.q5.answer">Mindful IA no solo mide productividad, sino que detecta estrés, ansiedad y depresión, ofrece recomendaciones emocionales y está adaptada al contexto peruano, a diferencia de las apps generales de tiempo o tareas.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" data-i18n="faqs.q6.question">6. ¿Cómo se valida que la solución responde a necesidades reales?</button>
+                        <div class="faq-answer" hidden data-i18n="faqs.q6.answer">Porque se usaron Needfinding y entrevistas que mostraron necesidades como personalización, pausas, manejo emocional y privacidad. Las User Stories integran exactamente esas demandas del usuario.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" data-i18n="faqs.q7.question">7. ¿Cómo utilizo MindfulIA en mi ordenador?</button>
+                        <div class="faq-answer" hidden data-i18n="faqs.q7.answer">Para tener a MindfulIA en su ordenador primero necesita descargarla; una vez descargada debe crearse una cuenta. Finalmente, inicie sesión y podrá utilizar normalmente la aplicación.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" data-i18n="faqs.q8.question">8. ¿La aplicación tendrá alguna micro-transacción por su uso?</button>
+                        <div class="faq-answer" hidden data-i18n="faqs.q8.answer">La aplicación de MindfulIA no tendrá ningún tipo de costo para descargar la aplicación o para generar los horarios. Si en algún momento aparece una advertencia para realizar algún tipo de pago, por favor descargue nuevamente la aplicación por medios legítimos.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="public/assets/scripts/faqs.js"></script>
+    <script src="public/assets/scripts/lang.js"></script>
+    <footer>
+        <ul>
+            <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-snapchat-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-pinterest-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-github-square"></i></a></li>
+        </ul>
+        <p>Copyright(C) 2020 <a href="index.html" target="_blank">Mindful-AI</a></p>
+        <p>All rights reserved.</p>
+    </footer>
+</body>
+</html>

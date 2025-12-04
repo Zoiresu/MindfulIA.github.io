@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title data-i18n="dashboard.title">Dashboard - Mindful-AI</title>
+  <link rel="stylesheet" href="public/assets/styles/style.css">
+</head>
+<body>
+  <header>
+    <h2><a class="logo" href="index.html">Mindful-AI</a></h2>
+    <nav>
+      <li><a href="index.html" class="xd" data-i18n="nav.home">Home</a></li>
+      <li><a href="nosotros.html" class="xd" data-i18n="nav.nosotros">Nosotros</a></li>
+      <li><a href="blog.html" class="xd" data-i18n="nav.blog">Blog</a></li>
+      <li><a href="faqs.html" class="xd" data-i18n="nav.faqs">FAQs</a></li>
+      <li><a href="reviews.html" class="xd" data-i18n="nav.reviews">Reseñas</a></li>
+      <li><a href="login.html" class="xd" data-i18n="nav.login">Iniciar sesión</a></li>
+      <li><a href="register.html" class="xd-btn" data-i18n="nav.register">Registrarse</a></li>
+      <li>
+        <button id="notif-bell" class="notif-bell" aria-label="Notificaciones"><span class="bell-icon">🔔</span><span class="notif-badge"></span></button>
+      </li>
+      <li style="margin-left:12px;">
+        <select id="lang-select" style="padding:6px 8px; border-radius:4px;">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+        </select>
+      </li>
+    </nav>
+  </header>
+
+  <main style="padding:140px 20px;">
+    <section class="dashboard">
+      <h1 data-i18n="dashboard.welcome">Panel de control</h1>
+      <p data-i18n="dashboard.lead">Bienvenido a tu panel. Aquí podrás ver tu actividad y recomendaciones personalizadas.</p>
+
+      <div class="dash-cards">
+        <article class="post-card">
+          <div class="post-body">
+            <h3 class="post-title" data-i18n="dashboard.activity">Actividad reciente</h3>
+            <p class="post-excerpt">(Datos de ejemplo) Has usado la app 2h hoy. Toma un descanso en 30 minutos.</p>
+          </div>
+        </article>
+        <article class="post-card">
+          <div class="post-body">
+            <h3 class="post-title" data-i18n="dashboard.recs">Recomendaciones</h3>
+            <p class="post-excerpt">(Datos de ejemplo) Practica respiraciones 3 minutos cada 2 horas.</p>
+          </div>
+        </article>
+      </div>
+
+      <div style="margin-top:20px;"><button id="logoutBtn" class="btn-primary">Logout</button></div>
+    </section>
+  </main>
+
+  <script>
+    // Protect page: require authToken in localStorage; validate with /api/me if available
+    (async function(){
+      const token = localStorage.getItem('authToken');
+      if(!token){ window.location.href = 'login.html'; return; }
+      try{
+        const r = await fetch('http://localhost:4000/api/me', { headers: { Authorization: 'Bearer ' + token }});
+        if(!r.ok){ localStorage.removeItem('authToken'); localStorage.removeItem('loggedInUser'); window.location.href='login.html'; return; }
+        const profile = await r.json();
+        // show user name if available
+        const h = document.querySelector('[data-i18n="dashboard.welcome"]');
+        if(profile && profile.nombre && h){ h.textContent = (localStorage.getItem('site-lang') === 'en') ? ('Welcome, ' + profile.nombre) : ('Bienvenido, ' + profile.nombre); }
+      }catch(e){ console.error(e); /* on error redirect to login */ window.location.href='login.html'; }
+
+      document.getElementById('logoutBtn').addEventListener('click', function(){ localStorage.removeItem('authToken'); localStorage.removeItem('loggedInUser'); window.location.href='login.html'; });
+    })();
+  </script>
+  <script src="public/assets/scripts/lang.js"></script>
+  <script src="public/assets/scripts/dashboard.js"></script>
+</body>
+</html>

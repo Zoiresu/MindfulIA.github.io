@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Mindful-AI</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="public/assets/styles/style.css">
+</head>
+<body>
+    <header>
+        <h2><a class="logo" href="index.html">Mindful-AI</a></h2>
+        <nav>
+            <li><a href="index.html" class="xd" data-i18n="nav.home">Home</a></li>
+            <li><a href="nosotros.html" class="xd" data-i18n="nav.nosotros">Nosotros</a></li>
+            <li><a href="blog.html" class="xd" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="faqs.html" class="xd" data-i18n="nav.faqs">FAQs</a></li>
+            <li><a href="reviews.html" class="xd" data-i18n="nav.reviews">Reseñas</a></li>
+            <li><a href="login.html" class="xd" data-i18n="nav.login">Iniciar sesión</a></li>
+            <li><a href="register.html" class="xd-btn" data-i18n="nav.register">Registrarse</a></li>
+            <li>
+                <button id="notif-bell" class="notif-bell" aria-label="Notificaciones"><span class="bell-icon">🔔</span><span class="notif-badge"></span></button>
+            </li>
+            <li style="margin-left:12px;">
+                <select id="lang-select" style="padding:6px 8px; border-radius:4px;">
+                    <option value="es">ES</option>
+                    <option value="en">EN</option>
+                </select>
+            </li>
+        </nav>
+    </header>
+
+    <!-- Blog list -->
+    <section class="faqs-page" style="background:#f7fafc; padding:60px 20px;">
+        <div class="register-container">
+            <div style="flex:1;">
+                <h1 class="register-title" style="color:#333;" data-i18n="blog.title">Blog</h1>
+                <p class="register-sub" style="color:#555; max-width:700px;" data-i18n="blog.lead">Noticias, consejos y recursos sobre bienestar digital y Mindful-AI.</p>
+
+                <div class="blog-list">
+                    <article class="post-card">
+                        <img src="public/assets/images/space-walk.jpg" alt="post" class="post-thumb">
+                        <div class="post-body">
+                            <h3 class="post-title">Hola!</h3>
+                            <time class="post-date">Nov 13, 2025</time>
+                            <p class="post-excerpt">Disculpen por la demora de esta actualización, ultimamente han habido muchos cambios dentro de la compañia, los cuales nos han hecho desperciar mucho tiempo. Pero bueno, hemos agregado la nueva función de poder editar tu horario, util para las personas que le salen imprevistos. Después hemos aplicado la función para que la IA pueda conversar contigo en tiempo real, brindándote recomendaciones, además de tener una gran escucha activa para todo lo que tengas que decir.
+                            Esperamos que en la próxima actualización podamos agregar mas cosas, para llegar a mas publico y puedan disfrutar de nuestra experiencia.
+                            Hasta la próxima!</p>
+                            <a href="#" class="xd-btn" style="margin-top:8px; display:inline-block;" data-i18n="blog.readmore">Leer más</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <ul>
+            <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-snapchat-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-pinterest-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-github-square"></i></a></li>
+        </ul>
+        <p><span data-i18n="footer.copy">Copyright(C) 2020</span> <a href="index.html" target="_blank">Mindful-AI</a></p>
+        <p data-i18n="footer.allrights">All rights reserved.</p>
+    </footer>
+    <script src="public/assets/scripts/lang.js"></script>
+</body>
+</html>
